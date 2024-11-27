@@ -1,9 +1,5 @@
 # Bridge to CSV Exporter
 
-A TypeScript utility to export LayerZero bridge transactions to CSV format.
-
-## Description
-
 This tool fetches transaction data from the LayerZero API for a specific OApp and converts it into a CSV file. Each transaction record includes:
 
 - Timestamp
@@ -12,23 +8,15 @@ This tool fetches transaction data from the LayerZero API for a specific OApp an
 - Native Amount
 - Status
 
-## Installation
+# Run the script
 
-1. Clone the repository:
-
-```
-bash
-git clone <repository-url>
-cd bridge-to-csv
-```
-
-2. Install
+1. Install
 
 ```
 yarn
 ```
 
-3. Run the script
+2. Run
 
 ```
 yarn start

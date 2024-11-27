@@ -38,10 +38,18 @@ async function main(): Promise<void> {
       console.log('Processed transaction:', row);
     });
 
+    // Create data directory if it doesn't exist
+    const dataDir = path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir);
+    }
+
+    // Generate timestamp for filename
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const outputPath = path.join(dataDir, `bridge_txns_${timestamp}.csv`);
+
     // Write to CSV
     const csvContent = csvRows.map((row) => row.join(',')).join('\n');
-    const outputPath = path.join(process.cwd(), 'bridge_transactions.csv');
-
     fs.writeFileSync(outputPath, csvContent);
     console.log(`Wrote ${transactions.length} transactions to ${outputPath}`);
   } catch (error) {
